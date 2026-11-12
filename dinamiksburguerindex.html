@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinamik's Burger | Hamburgueria Artesanal - Zona Norte SP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased pb-24">
+
+    <!-- Header Oficial -->
+    <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-full border-2 border-red-600 overflow-hidden bg-zinc-950 flex items-center justify-center shadow-md">
+                    <img src="https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/381cb0fb-f0be-4142-856f-b57b1156ec01/202204151551_rQKg_i.jpg" alt="Dinamik's Burger Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="text-xl font-black tracking-wider text-red-500">DINAMIK'S <span class="text-white">BURGER</span></span>
+            </div>
+            <button onclick="toggleCart()" class="relative bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2 rounded-xl text-sm flex items-center space-x-2 transition shadow-lg">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Carrinho</span>
+                <span id="cart-badge" class="absolute -top-2 -right-2 bg-amber-500 text-zinc-950 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navegação por Abas -->
+    <div class="bg-zinc-900/80 border-b border-zinc-800 sticky top-[65px] z-40 backdrop-blur-md overflow-x-auto">
+        <div class="max-w-5xl mx-auto px-4 flex space-x-3 py-3 whitespace-nowrap text-xs font-bold text-zinc-400">
+            <a href="#tradicionais" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Tradicionais</a>
+            <a href="#smash" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Smash</a>
+            <a href="#especiais" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Especiais</a>
+            <a href="#hotdogs" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Hot Dogs</a>
+            <a href="#combos" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Combos</a>
+            <a href="#batatas" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Batatas</a>
+            <a href="#acompanhamentos" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Acompanhamentos</a>
+            <a href="#bebidas" class="bg-zinc-800 hover:bg-red-600 hover:text-white px-3 py-1.5 rounded-lg transition">Bebidas</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-zinc-900 py-12 px-4 text-center border-b border-zinc-800">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-red-600/10 text-red-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-red-600/20">Vila Irmãos Arnoni • São Paulo - SP</span>
+            <h1 class="text-3xl md:text-5xl font-black mt-4 tracking-tight">O Melhor Hambúrguer <span class="text-red-500">Artesanal</span> da Zona Norte</h1>
+            <p class="text-zinc-400 mt-2 text-sm md:text-base">Ingredientes selecionados, carne suculenta e sabor incomparável.</p>
+        </div>
+    </section>
+
+    <!-- Cardápio Principal -->
+    <main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+
+        <!-- 1. BURGERS TRADICIONAIS -->
+        <section id="tradicionais">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-burger"></i> Burgers tradicionais</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/fde99cdddba7738652c10f68ca691132.jpeg" alt="X Salada" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X Salada</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão, hambúrguer160g, queijo prato, tomate , alface americana e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 29,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X Salada', 29.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/5874d5ea0006af053c7cdd8dcfdc99cb.jpeg" alt="X Burguer" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X Burguer</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão, hambúrguer160g, queijo prato e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 26,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X Burguer', 26.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/7d194ed42eb405b69535753ea93eae3b.jpeg" alt="X-frango" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X-frango</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de gergelim,hamburguer de frango artesanal 160g,queijo prato,maionese da casa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 26,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X-frango', 26.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/d02dc47be8bb3378e65e7b9f56bd3f05.jpeg" alt="X Bacon" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X Bacon</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão , hambúrguer160g, bacon em tiras , queijo prato e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 35,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X Bacon', 35.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/265bdea3c5ae3459b76e3628deb3718b.jpeg" alt="X Bacon Salada" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X Bacon Salada</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão , hambúrguer 160g, bacon em tiras ,queijo prato, tomate, alface americana e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 37,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X Bacon Salada', 37.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2125f81ec47bdf2b89d1076cda24f8da.jpeg" alt="X egg Salada" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X egg Salada</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de gergelim . hambúrguer160gr, queijo prato, ovo , tomate , alface americana e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 33,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X egg Salada', 33.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SMASH BURGER -->
+        <section id="smash">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-fire"></i> Smash Burger</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/ae114d6fed6cf75f4580282f1fc369a2.jpeg" alt="Burguer Smash Duplo" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Burguer Smash Duplo</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche , 2 hambúrguer80g cada , queijo cheddar e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 26,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Burguer Smash Duplo', 26.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/631bbb9c8bdc975ef0099d153eea5f38.jpeg" alt="Burguer Smash Triplo" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Burguer Smash Triplo</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche, 3 hambúrguer80g cada , queijo cheddar e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 33,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Burguer Smash Triplo', 33.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/f338292cc3019b435c4670288388540e.jpeg" alt="Burguer Smash quadruplo" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Burguer Smash quadruplo</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche, 4 hambúrguer80g cada , queijo cheddar e maionese da casa. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 37,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Burguer Smash quadruplo', 37.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. BURGERS ESPECIAIS -->
+        <section id="especiais">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-star"></i> Burger Especiais</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/0ebd47d5dfebeaf77e63c2965a95c4e4.jpeg" alt="X-Dinamik's" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X-Dinamik´s</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de brioche , hambúrguer160g , queijo cheddar , maionese da casa , doritos , aface americana , tomate , cebola roxa e molho barbecue.</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 36,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X-Dinamik´s', 36.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2a5558a59acc1651f28caa1ea5eb7190.jpeg" alt="Catupiry monster" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Catupiry monster</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de brioche , hambúrguer160g , catupiry , maionese da casa e bacon. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 38,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Catupiry monster', 38.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/261884769d0df5dc6a4a22c0e1ab552b.jpeg" alt="X-Frango turbo" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X-Frango turbo</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de gergelim,hamburguer de frango artesanal 160g,queijo prato,maionese da casa,alface,tomate,cebola roxa e um esplendido molh...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 31,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X-Frango turbo', 31.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/8d61d19901cf06d483798fbbf31bf6bf.jpeg" alt="Cremosinho" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Cremosinho</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de brioche ,hambúrguer160g ,cheddar cremoso,maionese da casa e pepperoni. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 33,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Cremosinho', 33.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/07ea2dad2d098f857c5c5d8db33db42c.jpeg" alt="Burger maluco lançamento" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Burger maluco lançamento</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,hamburguer80g,carne louca80g,queijo cheddar,vinagrete,picles,molho cheddar e maionese especial</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 34,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Burger maluco lançamento', 34.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/99570172d2f9445abf6b2cf31e2ff2df.jpeg" alt="Magnus picles lançamento" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Magnus picles lançamento</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,2 hamburger80g,queijo cheddar,bacon,maionese especial,Alface, tomate,cebola roxa,picles e barbecue</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 39,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Magnus picles lançamento', 39.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/b5b8b380a8ffcab3f2bc0349a0d91a99.jpeg" alt="O calabreso" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">O calabreso</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche, hambúrguer de calabresa moída 160g,fatias de queijo prato, maionese da casa e um sensacional vinagrete com pimenta...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 31,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('O calabreso', 31.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. HOT DOGS -->
+        <section id="hotdogs">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-hotdog"></i> Hot dogs</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720221111174017DKCefG27l.jpeg" alt="dog tradicional" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">dog tradicional</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de dog,1 salsicha sadia,ketchup,mostarda,maionese especial,pure de batata,vinagrete,milho e batata palha.prensado</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 19,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('dog tradicional', 19.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/9cbf31cff7896ce7075e01e002155f1f.jpeg" alt="dog magnífico" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">dog magnífico</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de dog,2salsichas sadia,ketchup,mostarda,maionese especial,pure de batata,milho ,vinagrete,catupiry original,molho cheddar,batata palha....</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 25,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('dog magnífico', 25.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/4014c9779fe469f66e1a4c21173ef9bf.jpeg" alt="dogão irresistível" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">dogão irresistível</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de dog,2 salsichas,maionese especial,pure de batata,vinagrete,carne louca,molho de cheddar,batata palha.prensado</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 27,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('dogão irresistível', 27.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/e1f357704358f077d0a59b3cb48c7a59.jpeg" alt="dogão supreme" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">dogão supreme</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de dog,2 salsichas,ketchup,mostarda,maionese especial,milho,carne louca,vinagrete,pure de batata,catupiry original,bacon e batata...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 29,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('dogão supreme', 29.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. COMBOS -->
+        <section id="combos">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-utensils"></i> Combos</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/e507b026b69ce1214b5b8b543fe86091.jpeg" alt="1X-Burger+batata pequena+1 coca cola lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1X-Burger+batata pequena+1 coca cola lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de gergelim,hamburguer100g,queijo prato,maionese da casa+batata 200g+coca lata Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 33,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1X-Burger+batata pequena+1 coca cola lata', 33.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/c60895482e871f87de8a38a1870d2c5d.jpeg" alt="1X- Salada + Batata Pequena +1 Coca Cola Lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1X- Salada + Batata Pequena +1 Coca Cola Lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão gergelim, hambúrguer100g , tomate , alface americana , queijo prato e maionese da casa+ batata 200g+ coca lata Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 36,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1X- Salada + Batata Pequena +1 Coca Cola Lata', 36.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/642261c8486e833cd159e57f0c062ddd.jpeg" alt="1 x bacon+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 x bacon+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de gergelim,hamburguer160g,queijo prato,bacon,maionese da casa,batata pequena200g,refri lata a sua escolha coca cola,guaraná,fant...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 45,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 x bacon+batata pequena+refri lata', 45.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/6583270e9316466955e842996247f4a5.jpeg" alt="1 smash duplo+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 smash duplo+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche, 2hamburguer80g,queijo cheddar,maionese da casa,batata pequena200g, refri lata a sua escolha:coca , guaraná,fanta ou sprite.</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 38,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 smash duplo+batata pequena+refri lata', 38.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/0179f1a7c35ed015a368ee06560acdb5.jpeg" alt="1 smash triplo+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 smash triplo+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,3 hambúrguer80g,queijo cheddar,maionese da casa, batata pequena200g, refri lata a sua escolha: coca,guaraná,fanta ou sprit...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 44,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 smash triplo+batata pequena+refri lata', 44.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/7dea68d6674ba8ec4da4b298b7ee916f.jpeg" alt="1 smash quádruplo+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 smash quádruplo+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,4 hamburguer80g,queijo cheddar, queijo prato,maionese da casa, batata pequena200g, refri lata a sua escolha :coca ,guaraná,...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 46,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 smash quádruplo+batata pequena+refri lata', 46.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/9ca5c258776ace0d5067b974c42670fb.jpeg" alt="1 X-dinamik's+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 X-dinamik's+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,hambúrguer160g,queijo cheddar ,doritos,maionese da casa,alface americana,tomate,cebola roxa e molho barbecue+batata...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 47,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 X-dinamik\'s+batata pequena+refri lata', 47.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/44afc25f61f1b1fd52686c10b9978c66.jpeg" alt="1 catupiry monster+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 catupiry monster+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche,hambúrguer160g,catupiry original,bacon, maionese da casa,batata pequena200g, refri lata a sua escolha:coca,guaraná,fanta ou...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 48,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 catupiry monster+batata pequena+refri lata', 48.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/02b87e4bf8e6d3730b114d1257e5051e.jpeg" alt="X-frango turbo+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">X-frango turbo+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">pão de gergelim, hambúrguer de frango artesanal 160g,queijo prato,maionese da casa,alface,tomate,cebola,molho +batata...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 44,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('X-frango turbo+batata pequena+refri lata', 44.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/98eb72b1093e9bce41aa7e4f5a069c9f.jpeg" alt="1 cremosinho+batata pequena+refri lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">1 cremosinho+batata pequena+refri lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão de brioche, hambúrguer160g,pepperoni,cheddar cremoso,maionese da casa,batata pequena200g, refri lata a sua escolha: coca , guaraná, fanta...</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 43,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('1 cremosinho+batata pequena+refri lata', 43.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/a6d1bc2b29c11274c62da660e578f993.jpeg" alt="2- X Burguer + 1 Batata400g +2 Coca Cola Lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">2- X Burguer + 1 Batata400g +2 Coca Cola Lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão gergelim, hambúrguer100g , queijo prato e maionese da casa+batata400g+2coca 350ml Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 63,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('2- X Burguer + 1 Batata400g +2 Coca Cola Lata', 63.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/6c61b3e91daa8209a9b213f90bea7fa8.jpeg" alt="3- Smash Burguer Duplo + 2 Batata Media +1 Coca Cola 2litros" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">3- Smash Burguer Duplo + 2 Batata Media +1 Coca Cola 2litros</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Pão brioche, 2 hambúrguer80g cada, queijo cheddar e maionese da casa+2batata 400g+2 coca lata Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 120,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('3- Smash Burguer Duplo + 2 Batata Media +1 Coca Cola 2litros', 120.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. BATATAS FRITAS -->
+        <section id="batatas">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-utensils"></i> Batatas Fritas</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/b986d7e52a2405f51d8640cd4bd14452.jpeg" alt="Batata Recheada Grande" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Batata Recheada Grande</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata500g ,Cheddar, Catupiry, mostarda, maionese , catchup e bacon. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 37,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Batata Recheada Grande', 37.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/b4d8621703acb9bd4956e4452e856757.jpeg" alt="Batata Recheada Media" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Batata Recheada Media</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata400g ,Cheddar, Catupiry, mostarda, maionese , catchup e bacon. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 34,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Batata Recheada Media', 34.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/1bd2b44e8e7ef32d055932f84f8ebf06.jpeg" alt="aneis de cebola empanada lançamento" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">aneis de cebola empanada lançamento</h4>
+                            <p class="text-zinc-400 text-xs mt-1">porção com aneis + 1 potinho de molho a sua escolha</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 16,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('aneis de cebola empanada lançamento', 16.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510184123JvauiMtE5.jpeg" alt="Batata Simples Media" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Batata Simples Media</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata 400g. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 19,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Batata Simples Media', 19.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/29537202205101842478Kliw8Gaf.jpeg" alt="Batata Simples Grande" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Batata Simples Grande</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata 500g. Foto meramente ilustrativa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 22,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Batata Simples Grande', 22.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/207780ac0a72b62b7cce8346f1e4dca4.jpeg" alt="batata cheddar e bacon M" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">batata cheddar e bacon M</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata frita 400g,cheddar cremoso e irresistível bacon artesanal defumado. Peso aproxi:470g</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 28,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('batata cheddar e bacon M', 28.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/207780ac0a72b62b7cce8346f1e4dca4.jpeg" alt="batata cheddar e bacon G" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">batata cheddar e bacon G</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata frita 500g, cheddar cremoso e bacon artesanal defumado.peso aproxi: 570g</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 32,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('batata cheddar e bacon G', 32.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/18afb8cbba4ca60694e5c7b0f649154c.jpeg" alt="batata catupiry e bacon M" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">batata catupiry e bacon M</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata frita 400g, catupiry original e bacon artesanal defumado. Peso aproxi:470g</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 28,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('batata catupiry e bacon M', 28.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/18afb8cbba4ca60694e5c7b0f649154c.jpeg" alt="batata catupiry e bacon G" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">batata catupiry e bacon G</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Batata frita 500g, catupiry original e um irresistível bacon artesanal defumado. Peso aproxi:570g</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 32,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('batata catupiry e bacon G', 32.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. ACOMPANHAMENTOS -->
+        <section id="acompanhamentos">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-utensils"></i> Acompanhamentos</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510005849ex04Z9IPN.jpeg" alt="potinho Maionese da casa" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">potinho Maionese da casa</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Maionese artesanal da casa</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 6,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('potinho Maionese da casa', 6.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510005746YYmxBEDeh.jpeg" alt="potinho Molho de alho verde" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">potinho Molho de alho verde</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Molho de alho verde especial</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 6,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('potinho Molho de alho verde', 6.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510181941MU6gzzL3A.jpeg" alt="Sachê de ketchup" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Sachê de ketchup</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Sachê individual</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 0,50</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Sachê de ketchup', 0.50)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. BEBIDAS -->
+        <section id="bebidas">
+            <h2 class="text-2xl font-bold tracking-tight text-red-500 flex items-center gap-2 mb-6"><i class="fa-solid fa-bottle-water"></i> Bebidas</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510182301cwMrt8i2q.jpeg" alt="Coca Cola lata" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Coca Cola lata</h4>
+                            <p class="text-zinc-400 text-xs mt-1">350ml</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 7,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Coca Cola lata', 7.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510182459QzTyhneaC.jpeg" alt="Coca Cola Zero" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Coca Cola Zero</h4>
+                            <p class="text-zinc-400 text-xs mt-1">350ml</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 7,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Coca Cola Zero', 7.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510182429mtzjln6oj.jpeg" alt="Fanta Laranja" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Fanta Laranja</h4>
+                            <p class="text-zinc-400 text-xs mt-1">350 ml</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 7,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Fanta Laranja', 7.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/29537202205101824169tvhL1LVI.jpeg" alt="Sprite" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Sprite</h4>
+                            <p class="text-zinc-400 text-xs mt-1">350ml</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 7,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Sprite', 7.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510182401232LA1gp7.jpeg" alt="Coca Cola 2 litros" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Coca Cola 2 litros</h4>
+                            <p class="text-zinc-400 text-xs mt-1">2 litros</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 14,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Coca Cola 2 litros', 14.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720220510182344qvgXHZ70j.jpeg" alt="Guaraná Antarctica 2 litros" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Guaraná Antarctica 2 litros</h4>
+                            <p class="text-zinc-400 text-xs mt-1">2 litros</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 14,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Guaraná Antarctica 2 litros', 14.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/2953720221209180419WOHHu2Vwx.jpeg" alt="Suco del valle laranja 1L" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Suco del valle laranja 1L</h4>
+                            <p class="text-zinc-400 text-xs mt-1">1 Litro</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 12,90</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Suco del valle laranja 1L', 12.90)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/0459da1a33c95b5095104442ddd39a76.jpeg" alt="Cerveja Heineken 330ml" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Cerveja Heineken 330ml</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Long neck Heineken 330ml</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 11,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Cerveja Heineken 330ml', 11.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-600/50 transition">
+                    <div class="flex gap-4">
+                        <img src="https://cdn-production.yooga.com.br/e9fc0d117a6501b486df8f7fd49a23a8.jpeg" alt="Água" class="w-24 h-24 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-base">Água</h4>
+                            <p class="text-zinc-400 text-xs mt-1">Água sem gás cristal</p>
+                            <span class="text-red-500 font-bold text-sm block mt-2">R$ 4,00</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Água', 4.00)" class="mt-4 w-full bg-zinc-800 hover:bg-red-600 hover:text-white text-red-500 font-bold py-2 rounded-xl text-xs transition border border-red-600/30">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Localização -->
+        <section id="localizacao" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center space-y-4">
+            <h2 class="text-xl font-bold text-red-500"><i class="fa-solid fa-location-dot"></i> Onde Estamos</h2>
+            <p class="text-zinc-400 text-sm">Zona Norte, São Paulo - SP</p>
+            <div class="text-xs text-zinc-500">Atendimento de terça a domingo das 18h às 23h59</div>
+        </section>
+    </main>
+
+    <!-- Modal / Carrinho Flutuante -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl w-full max-w-lg p-6 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-red-500"></i> Seu Pedido</h3>
+                <button onclick="toggleCart()" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <div id="cart-items" class="max-h-60 overflow-y-auto space-y-3 divide-y divide-zinc-800 text-sm">
+                <!-- Itens injetados via JS -->
+            </div>
+
+            <div class="border-t border-zinc-800 pt-3 flex justify-between font-bold text-base">
+                <span>Total:</span>
+                <span id="cart-total" class="text-red-500">R$ 0,00</span>
+            </div>
+
+            <div class="space-y-3 pt-2">
+                <div>
+                    <label class="block text-xs font-medium text-zinc-400 mb-1">Nome do Cliente:</label>
+                    <input type="text" id="client-name" placeholder="Digite seu nome" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-zinc-400 mb-1">Endereço de Entrega:</label>
+                    <input type="text" id="client-address" placeholder="Rua, Número, Bairro" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500">
+                </div>
+            </div>
+
+            <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Pedido via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Script do Carrinho e WhatsApp -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+            renderCart();
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateBadge();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateBadge();
+            renderCart();
+        }
+
+        function updateBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems > 0) {
+                badge.innerText = totalItems;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-zinc-500 text-center py-4 text-xs">Seu carrinho está vazio.</p>';
+                totalEl.innerText = 'R$ 0,00';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center pt-3 first:pt-0';
+                div.innerHTML = `
+                    <div>
+                        <h4 class="font-medium text-xs text-white">${item.name}</h4>
+                        <p class="text-xs text-zinc-400">R$ ${item.price.toFixed(2)} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-xs text-red-500">R$ ${(item.price * item.quantity).toFixed(2)}</span>
+                        <button onclick="removeFromCart(${index})" class="text-zinc-500 hover:text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            totalEl.innerText = `R$ ${total.toFixed(2)}`;
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            const name = document.getElementById('client-name').value.trim();
+            const address = document.getElementById('client-address').value.trim();
+
+            if (!name || !address) {
+                alert('Por favor, preencha seu nome e endereço de entrega.');
+                return;
+            }
+
+            let message = `🍔 *NOVO PEDIDO - DINAMIK'S BURGER* 🍔\n\n`;
+            message += `*Cliente:* ${name}\n`;
+            message += `*Endereço:* ${address}\n\n`;
+            message += `*Itens do Pedido:*\n`;
+
+            let total = 0;
+            cart.forEach(item => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                message += `• ${item.quantity}x ${item.name} - R$ ${subtotal.toFixed(2)}\n`;
+            });
+
+            message += `\n*Total a pagar:* R$ ${total.toFixed(2)}`;
+
+            const phone = '5511913581939';
+            const encoded = encodeURIComponent(message);
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encoded}`, '_blank');
+        }
+    </script>
+</body>
+</html>
